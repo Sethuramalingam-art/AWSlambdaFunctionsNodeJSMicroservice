@@ -1,0 +1,34 @@
+
+Create Microservice in AWS Lambda(Serverless/FaaS)
+
+Curencyconvert API in AWS Lambda.
+
+AWS console -> Service -> Lambda service 
+
+Lambda home page -> Create function -> Author from scratch -> name the function  -> Runtime(NodeJS 12.x) -> Create function
+
+After function create -> Add Triggers -> Trigger config
+
+Trigger config (multiple types)
+
+1. API gateway -> Serverless
+2. AWS IoT -> IoT Deveices
+3. DynamoDB -> aws database noSQL
+4. Application Load Balancer
+
+Select API gateway for API expose -> Create new API -> Security -> open(no security) -> Add -> it generate one API endpoint URL
+with default (ex: https://hkxw7gn107.execute-api.eu-west-2.amazonaws.com/default/nameofthefunction) 
+
+Now we got one runtime env's(NodeJS)
+with default function 
+
+exports.handler = async(event) => {
+    const response={
+        statusCode:200,
+        body: JSON.stringify('hello from Lambda');
+    }
+    return response;
+}
+
+when we expose default api endpoint in browser we got hello from lambda
+
